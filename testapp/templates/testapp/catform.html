@@ -1,0 +1,11 @@
+
+{% block catform %}
+
+<form action="/start/cat/" method="POST">
+  {{ csrf_token }}
+
+<input type="text" name="cat" />
+
+</form>
+
+{% endblock %}
