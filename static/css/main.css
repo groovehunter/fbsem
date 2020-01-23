@@ -1,0 +1,104 @@
+#datediv1 td {
+    padding: 2em;
+}
+
+#datediv1 a {
+    text-decoration: none;
+}
+#datediv1 a:hover {
+    background-color: #c7c7c7;
+}
+
+#title-archiv {
+    padding: 4px;
+}
+#title-aktuell {
+	padding: 4px;
+}
+
+#title {
+	margin-top: 6px;
+    padding: 5px;
+	padding-top: 8px;
+    color: #000;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.navmsg {
+    font-size: 12px;
+    padding: 2px 4px;
+	white-space: normal;
+	color: #000;
+	margin-top: 10px;
+	margin-left: -2px;
+	overflow: auto;
+	position: relative;
+    margin-bottom: 4px;
+}
+
+.bold	{
+    color: #000000;
+    font-weight: bold;
+    font-size: 12pt;
+}
+.label {
+    font-size: 10pt;
+}
+.klein {
+    color: #000000;
+    font-weight: normal;
+    font-size: 10pt;
+}
+#logout {
+    font-weight: bold;
+    font-size: 12pt;
+	background-color: #ccc;
+	padding: 3px;
+	margin-top: 3px;
+}
+/* minor */
+
+.space {
+    padding: 16px 16px;
+}
+#flat {
+    padding: 10px 10px;
+}
+thead { text-align: left; }
+th { font-weight: normal; }
+th a {
+    color: #000000;
+    text-decoration: none;
+}
+th a:active {
+    color: #6A8AB0;
+}
+th a:hover {
+    text-decoration: underline;
+}
+
+.simple {
+    background-color: #c7c7c7;
+ }
+
+
+.fix {
+    height: 27em;
+    overflow: scroll;
+}
+.fix2 {
+    height: 41em;
+    overflow: scroll;
+}
+
+.dropdown {
+	float:right;
+}
+
+#archiv table {
+	table-layout: fixed;
+}
+.mleft {
+	margin-left: -4px;
+}

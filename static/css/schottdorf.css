@@ -1,0 +1,23 @@
+
+.ueber {
+		color: #000000;
+		font-weight: bold;
+}
+.text {
+		color: #000000;
+		font-weight: normal;
+}
+.normal {
+		color: #000000;
+		font-weight: normal;
+}
+.fett	{
+		color: #000000;
+		font-weight: bold;
+}
+.klein	{
+		color: #000000;
+		font-weight: normal;
+		font-size: 10pt;
+}
+

@@ -17,8 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 #import testapp
+from . import views
+#import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('start/',  include('testapp.urls')),
+    path('cat/',   include('categories.urls')),
+    path('', views.home)
+
 ]

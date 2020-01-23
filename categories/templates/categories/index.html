@@ -1,0 +1,14 @@
+{% extends "fbsem/base.html" %}
+
+{% block content %}
+
+<ul>
+{% for cat in cat_list %}
+
+  <li>{{ cat.id }}  {{ cat.name }}
+  </li>
+
+{% endfor %}
+</ul>
+
+{% endblock %}

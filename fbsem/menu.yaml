@@ -1,0 +1,46 @@
+# main config file of functions of the application
+# used for init. of menu
+# and permission system
+
+
+
+- category:
+    id:      category
+    name:    Category
+    href:    cat/
+    links:
+      - name:    List
+        href:    /cat/
+      - name:    Entries in Category
+        href:    /cat/1/entries
+
+
+- konto:
+    id:      konto
+    name:    Benutzerkonto
+    href:    konto/
+    links:
+      - name:    Passwort
+        href:    /konto/bearbeitungsform/
+      - name:    Benutzer verwalten
+        href:    /konto/unterkonten/
+
+- einstellungen:
+    id:      einstellungen
+    name:    Einstellungen
+    href:    einstellungen/
+    links:
+      - name:    Befunde
+        href:    /einstellungen/befunde/
+      - name:    Sonstiges
+        href:    /einstellungen/sonstiges/
+
+- info:
+    id:      info
+    name:    Information
+    href:    info/
+    links:
+      - name:    Impressum
+        href:    /info/imprint/
+      - name:    Hilfe
+        href:    /info/hilfe/

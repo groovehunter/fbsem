@@ -1,0 +1,65 @@
+
+div.menubox-active li.item a {
+    color: #fff;
+}
+div.menubox li.item-active {
+    background: #bcd;
+    color: #fff;
+}
+div.menubox a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.menubox {
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+/*    background: #f33b1d; */
+    background: #bcd;
+    width: 160px;
+    padding-top: 9px;
+    padding-bottom: 8px;
+    padding-left: 21px;
+    margin-left: 0px;
+    margin-bottom: 3px;
+}
+
+div.menubox-active a {
+	color:#000;
+	display: block;
+}
+div.menubox-active {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    background: #bcd;
+}
+
+.subbox {
+    font-size: 11px;
+    font-weight: bold;
+    background: #fff;
+/*    width: 120px; */ /* streifen ganz bis nach rechts?*/
+/*
+*/
+	padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-left: 2px;
+}
+
+.subbox ul {
+	margin-left: -39px;
+}
+
+.subbox ul li {
+    list-style-type: none;
+    margin-top: 2px;
+	margin-bottom: 2px;
+    padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 8px;
+/*
+*/
+	background: #bcd;
+}
