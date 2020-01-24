@@ -2,15 +2,19 @@
 
 {% block content %}
 
-import cats
 
+<h3>Import categories</h3>
+
+<form action="/cat/import_do" method="post">
+{% csrf_token %}
+  <input name="import" type="submit" value="Import starten" />  <br/>
+  <input type="text" name="parent" value="root" /> Parent category <br/>
+  <input name="sel_all" type="checkbox"  /> Select all <br/>
 <ul>
 {% for cat in cat_list %}
-
-  <li>{{ cat.id }}  {{ cat.name }} --- {{cat}}
-  </li>
-
+  <li><input name="import_sel" type="checkbox" value="{{cat}}" checked /> {{cat}}</li>
 {% endfor %}
 </ul>
 
+</form>
 {% endblock %}
