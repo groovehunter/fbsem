@@ -32,6 +32,11 @@ class Controller:
         self.response.write(html)
         return self.response
 
+    def redirect(self, url, msg=''):
+        if msg:
+            url = url + '?msg=' + msg
+        return HttpResponseRedirect(url)
+
     def yaml_load(self):
         c = open(join(BASE_DIR, 'fbsem/menu.yaml'), encoding='utf8').read()
         self.tree = yaml.load(c)
