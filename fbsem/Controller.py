@@ -22,6 +22,11 @@ class Controller:
         self.yaml_load()
         self.yamlmenu()
 
+        if self.request.GET:
+            GET = self.request.GET
+            if 'msg' in GET:
+                self.context['msg'] = GET['msg']
+
 
     def render(self):
         t = loader.get_template(self.template)
