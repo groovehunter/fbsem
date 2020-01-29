@@ -1,0 +1,10 @@
+{% extends "fbsem/base.html" %}
+
+
+
+{% block content %}
+person_list
+<h3>{{app.name}} - {{app.model}} </h3>
+
+  {% include "fbsem/table_generic.html" %}
+{% endblock %}

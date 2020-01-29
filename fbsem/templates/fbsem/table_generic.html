@@ -1,0 +1,41 @@
+<!-- table generic / nicht fuer befunde! -->
+
+<table summary="{{summary}}" class="sortable grid">
+<thead style="font-weight:bold">
+<tr>
+    {% if rowbox %}
+    <th>
+        <input type="checkbox" id="sel_all1"
+			   onclick="javascript:select_all('1')"
+			   title="Alle ausw&auml;hlen // Keinen ausw&auml;hlen" />
+    </th>
+    {% endif %}
+
+    {% for fn in keys %}
+	    <th class="sortable">
+	       {{fn}}
+	    </th>
+    {% endfor %}
+</tr>
+</thead>
+
+<tbody>
+
+{% for item in data %}
+
+<tr class="{% cycle 'odd' 'even' %}">
+    {% if rowbox %}
+    <td style="text-align:center;">
+        <input type="checkbox" name="{{item.key}}" value="" />
+    </td>
+    {% endif %}
+
+    {% for d in item %}
+      <td>{{d}}</td>
+    {% endfor %}
+</tr>
+
+{% endfor %}
+</tbody>
+
+</table>

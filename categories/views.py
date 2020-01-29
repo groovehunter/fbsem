@@ -12,7 +12,8 @@ def show(request):
 
 def import_cat(request):
     ctrl = CategoryController(request)
-    return ctrl.import_cat()
+    return ctrl.import_lookup()
+    #return ctrl.import_cat()
 
 def import_process(request):
     ctrl = CategoryController(request)

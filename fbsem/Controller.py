@@ -54,9 +54,6 @@ class Controller:
 
         menudata = []
 
-        #self.lg.debug('self.perm: %s', self.perm)
-        #self.lg.debug('self.tree: %s', self.tree)
-
         for section in self.tree:
             #self.lg.debug('section %s', section )
             sec = list(section.values())[0]

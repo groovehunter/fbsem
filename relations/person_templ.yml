@@ -1,0 +1,9 @@
+
+- model: relations.person
+  pk: 3
+  fields:
+    name: 
+    first_name: 
+    last_name: 
+
+

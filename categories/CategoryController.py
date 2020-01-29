@@ -25,8 +25,6 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = ['cat_name']
-
-
 #class CategoryForm(forms.Form):
 #    cat_name = forms.CharField(label='Kategorien-name', max_length=60)
 
@@ -53,8 +51,6 @@ class CategoryController(Controller, TermRessource):
                 cat_name = self.request.POST['cat_name']
 
                 return self.redirect('/cat/index')
-
-        # if a GET (or any other method) we'll create a blank form
         else:
             form = CategoryForm()
 
@@ -62,15 +58,31 @@ class CategoryController(Controller, TermRessource):
         self.template = 'categories/cat_form.html'
         return self.render()
 
-
-
-    def import_cat(self):
-        """ import categories form """
-        term = "Kunst und Kultur"
-        subcats = self.collect(term)
-        self.context['cat_list'] = subcats
+    def import_lookup(self):
+        """ GET of lookup term """
         self.template = 'categories/import.html'
+        if not self.request.GET:
+            return self.render()
+
+        #self.lg.debug('yo %s', self.request.GET)
+        term = self.request.GET.get('lookup', '')
+        self.lg.debug('loopup term: %s', term)
+        if not term:
+            return self.render()
+
+        subcats = self.collect(term)
+        if subcats == []:
+            self.msg = 'Keine Sub-Kategorien bzw. gegebene Kategorie existiert nicht.'
+        #self.lg.debug('subcats %s', subcats)
+        self.context['cat_list'] = subcats
+        self.context['term'] = term 
         return self.render()
+
+    # away
+    #def import_cat(self):
+    #    """ import categories form """
+    #    self.template = 'categories/import.html'
+    #    return self.render()
 
     def import_process(self):
         """ process import from form """

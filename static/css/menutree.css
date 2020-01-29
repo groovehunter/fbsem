@@ -3,7 +3,7 @@ div.menubox-active li.item a {
     color: #fff;
 }
 div.menubox li.item-active {
-    background: #bcd;
+    background: #b66;
     color: #fff;
 }
 div.menubox a {
@@ -16,7 +16,7 @@ div.menubox a {
     font-weight: bold;
     color: #fff;
 /*    background: #f33b1d; */
-    background: #bcd;
+    background: #b64;
     width: 160px;
     padding-top: 9px;
     padding-bottom: 8px;
@@ -32,7 +32,7 @@ div.menubox-active a {
 div.menubox-active {
     padding-bottom: 0px;
     margin-bottom: 0px;
-    background: #bcd;
+    background: #a64;
 }
 
 .subbox {
@@ -61,5 +61,5 @@ div.menubox-active {
 	padding-left: 8px;
 /*
 */
-	background: #bcd;
+	background: #864;
 }

@@ -24,6 +24,10 @@ INSTALLED_APPS = [
     'fbsem',
     'testapp',
     'categories',
+    'relations',
+#    'django_seed',
+#    'fixture-magic',
+#    'django-dynamic-fixture',
 ]
 
 MIDDLEWARE = [

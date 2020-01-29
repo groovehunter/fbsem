@@ -1,0 +1,13 @@
+- model: relations.person
+  pk: 1
+  fields:
+    name: John Lennon
+    first_name: John
+    last_name: Lennon
+- model: relations.person
+  pk: 2
+  fields:
+    name: Paul McCartney
+    first_name: Paul
+    last_name: McCartney
+

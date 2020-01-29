@@ -11,6 +11,8 @@
     links:
       - name:    List
         href:    /cat/
+      - name:    Import
+        href:    /cat/import
       - name:    Entries in Category
         href:    /cat/1/entries
 
@@ -25,22 +27,21 @@
       - name:    Benutzer verwalten
         href:    /konto/unterkonten/
 
-- einstellungen:
-    id:      einstellungen
-    name:    Einstellungen
-    href:    einstellungen/
+- admin:
+    id:      admin
+    name:    Administration
+    href:    admin/
     links:
-      - name:    Befunde
-        href:    /einstellungen/befunde/
-      - name:    Sonstiges
-        href:    /einstellungen/sonstiges/
+      - name:    cat
+        href:    /admin/categories
+      - name:    people
+        href:    /admin/people
 
-- info:
-    id:      info
-    name:    Information
-    href:    info/
+
+- rel:
+    id:      rel
+    name:    Relations
+    href:    rel/
     links:
-      - name:    Impressum
-        href:    /info/imprint/
-      - name:    Hilfe
-        href:    /info/hilfe/
+      - name:    persons
+        href:    /rel/person/

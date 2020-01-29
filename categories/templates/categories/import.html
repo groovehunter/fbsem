@@ -4,11 +4,26 @@
 
 
 <h3>Import categories</h3>
+<hr>
+
+<b>Lookup Service provider</b>
+<form action="/cat/import_lookup" method="get">
+  {% csrf_token %}
+  <input type="text" name="lookup" value="" /> Term to lookup <br/>
+  <input name="import" type="submit" value="Lookup starten" />  <br/>
+</form>
+
+<hr>
+  <h3> Subkategorien
+      {% if term %}
+        <b>von "{{term}}"</b>
+      {% endif %}
+  </h3>
 
 <form action="/cat/import_do" method="post">
 {% csrf_token %}
+  <input type="text" name="parent" value="{{term}}" /> Parent category <br/>
   <input name="import" type="submit" value="Import starten" />  <br/>
-  <input type="text" name="parent" value="root" /> Parent category <br/>
   <input name="sel_all" type="checkbox"  /> Select all <br/>
 <ul>
 {% for cat in cat_list %}
