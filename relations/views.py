@@ -9,25 +9,12 @@ from django.shortcuts import render
 from fbsem.Controller import Controller
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from fbsem.view_helpers import GenericFlow
 
 
 class PersonView(TemplateView):
     template_name = 'relations/about.html'
     #model = Person
-
-class GenericFlow:
-    def listview_helper(self):
-        keys = self.model._meta.get_fields()
-        field_names = [k.name for k in keys]
-        for f in self.fields_noshow:
-            field_names.remove(f)
-        (app, modl) = self.model._meta.label.split('.')
-        return {
-            'app'   : app.capitalize(),
-            'modl'  : modl,
-            'keys'  : field_names,
-        }
-
 
 class PersonListView(ListView, GenericFlow):
     model = Person

@@ -1,7 +1,8 @@
 from django.urls import path, include
 
 from . import views
-from .views import PersonView, PersonListView, PersonDetailView, PeopleGroupDetailView, PeopleGroupListView
+from .views import PersonView, PersonListView, PersonDetailView
+from .views import PeopleGroupDetailView, PeopleGroupListView
 
 urlpatterns = [
     path('person/', views.p_index),
