@@ -2,7 +2,7 @@
 
 <div class="box" id="loginbox">
 <b>Login</b><br>
-<form action="/user/login" method="POST">
+<form action="/accounts/login/" method="POST">
 {% csrf_token %}
 <table>
 <tr width="50">
@@ -22,7 +22,7 @@
 </tr>
 <tr>
     <td>
-	<input name="pw" type="password" size="15" />
+	<input name="password" type="password" size="15" />
     </td>
 </tr>
 </table>

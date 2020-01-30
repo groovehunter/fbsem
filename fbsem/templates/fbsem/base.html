@@ -40,13 +40,15 @@
 </div>
 
 <div class="col2">
-  {% if not logged_in %}
-		{% include "fbsem/loginbox.html" %}
-  {% else %}
-		{% include "fbsem/nav.html" %}
-    <a href="/konto/abmelden">Abmelden </a>
-
-	{% endif %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  {% include "fbsem/nav.html" %}
+  <a href="{% url 'logout' %}">Abmelden </a>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+  {% include "fbsem/loginbox.html" %}
+{% endif %}
 
 </div>
 

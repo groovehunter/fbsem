@@ -18,14 +18,14 @@
 
 
 - konto:
-    id:      konto
+    id:      user
     name:    Benutzerkonto
-    href:    konto/
+    href:    user/
     links:
-      - name:    Passwort
-        href:    /konto/bearbeitungsform/
+      - name:    Login
+        href:    /login
       - name:    Benutzer verwalten
-        href:    /konto/unterkonten/
+        href:    /user/
 
 - admin:
     id:      admin
@@ -43,5 +43,17 @@
     name:    Relations
     href:    rel/
     links:
-      - name:    persons
-        href:    /rel/person/
+      - name:    Person
+        href:    /rel/pl
+      - name:    PeopleGroup
+        href:    /rel/pgl
+
+- notes:
+    id:      notes
+    name:    Notizen
+    href:    notes/
+    links:
+      - name:    Notiz-Liste
+        href:    /notes/
+      - name:    Notiz
+        href:    /notes/note/1

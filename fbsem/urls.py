@@ -25,7 +25,10 @@ urlpatterns = [
     path('start/',  include('testapp.urls')),
     path('cat/',   include('categories.urls')),
     path('rel/',   include('relations.urls')),
-    
-    path('', views.home)
+    path('notes/',   include('notes.urls')),
+    #path('login', views.login),
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    path('', views.home),
 
 ]
