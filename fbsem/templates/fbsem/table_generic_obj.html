@@ -1,5 +1,5 @@
 <!-- table generic / nicht fuer befunde! -->
-
+{% load getattr %}
 <table summary="{{summary}}" class="sortable grid">
 <thead style="font-weight:bold">
 <tr>
@@ -23,7 +23,7 @@
 
 <tbody>
 
-{% for item in data %}
+{% for item in object_list %}
 
 <tr class="{% cycle 'odd' 'even' %}">
     {% if rowbox %}
@@ -32,13 +32,13 @@
     </td>
     {% endif %}
     <td>
-      <a href="{{url}}/{{item.id}}">X{{item.name}}</a>
+      <a href="{{url_detail}}/{{item.id}}">{{item.name}}</a>
     </td>
 
-    {% for d in item %}
-      <td>{{d}}</td>
+    {% for k in keys %}
+      <td>{{item|getattr:k}}</td>
     {% endfor %}
-    <td><a href="{{url}}/{{item.id}}">X{{item.name}}</a></td>
+    <td><a href="{{url_detail}}/{{item.id}}">{{item.name}}</a></td>
 </tr>
 
 {% endfor %}

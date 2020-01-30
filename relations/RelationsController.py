@@ -25,3 +25,5 @@ class RelationsController(Controller):
     def index(self):
         self.template = 'relations/index.html'
         return self.render()
+
+    def pgd(self):  pass

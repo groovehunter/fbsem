@@ -1,0 +1,24 @@
+{% extends "fbsem/base.html" %}
+{% load getattr %}
+
+{% block content %}
+
+<h3>{{app}} - {{modl}} </h3>
+
+[ <a href="{{url}}/{{object.id|add:"-1"}}">prev</a>
+&nbsp;|&nbsp;
+<a href="{{url}}/{{object.id|add:"1"}}">next</a> ]
+--- <a href="{{url_list}}">Alle</a>
+
+<p>Details for <b>{{object.name}}</b></p>
+
+<table>
+{% for k in keys %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{k}}</td>
+    <td>{{object|getattr:k}}</td>
+  </tr>
+{% endfor %}
+</table>
+
+{% endblock %}
