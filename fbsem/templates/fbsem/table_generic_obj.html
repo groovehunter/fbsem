@@ -1,5 +1,8 @@
 <!-- table generic / nicht fuer befunde! -->
 {% load getattr %}
+{% if debug %}
+  {{keys}}
+{% endif %}
 <table summary="{{summary}}" class="sortable grid">
 <thead style="font-weight:bold">
 <tr>

@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'categories',
     'relations',
     'notes',
+    'import_export',
 #    'django_seed',
 #    'fixture-magic',
 #    'django-dynamic-fixture',

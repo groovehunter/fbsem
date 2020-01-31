@@ -1,7 +1,5 @@
-# main config file of functions of the application
 # used for init. of menu
 # and permission system
-
 
 
 - category:
@@ -9,8 +7,10 @@
     name:    Category
     href:    cat/
     links:
-      - name:    List
-        href:    /cat/
+      - name:    Categories List
+        href:    /cat/index
+      - name:    Item List
+        href:    /cat/item/index
       - name:    Import
         href:    /cat/import
       - name:    Entries in Category
@@ -20,12 +20,14 @@
 - konto:
     id:      user
     name:    Benutzerkonto
-    href:    user/
+    href:    accounts/
     links:
       - name:    Login
-        href:    /login
+        href:    /accounts/login
+      - name:    Logout
+        href:    /accounts/logout
       - name:    Benutzer verwalten
-        href:    /user/
+        href:    /accounts/profile
 
 - admin:
     id:      admin
