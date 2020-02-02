@@ -19,7 +19,7 @@ class TestController(Controller):
 
     def __init__(self, request):
         Controller.__init__(self, request)
-        self.wiki = wikipediaapi.Wikipedia('de')
+        #self.wiki = wikipediaapi.Wikipedia('de')
 
     def fb(self):
         obj_id = 'SelbstSozialTransformativKunst'
@@ -31,10 +31,7 @@ class TestController(Controller):
         #url_login = graph.get_auth_url(app_id, canvas_url, perms)
 
     def test1(self):
-
-        cat = wiki.page("Kategorie:Kunst und Kultur")
-        #print_categorymembers(cat.categorymembers)
-        debug = cat.categorymembers
+        debug = ''
         self.context['debug'] = debug
         self.context['values'] = debug
         self.template = 'testapp/test1.html'
@@ -42,11 +39,9 @@ class TestController(Controller):
 
 
     def categorymembers(self, cat=''):
-
         self.template = 'testapp/catlist.html'
         if not cat:
             return self.render()
-
         cat = self.wiki.page("Kategorie:"+cat)
         debug = cat.categorymembers
         self.context['debug'] = debug
