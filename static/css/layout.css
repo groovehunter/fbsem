@@ -5,9 +5,6 @@ body {
     border:0;	    /* This removes the border around the viewport in old versions of IE */
     width:100%;
     background:#fff;
-    min-width:600px;	
-/* Minimum width of layout - remove line if not required */
-/* The min-width property does not work in old versions of Internet Explorer */
     font-size:90%;
 }
 
@@ -15,19 +12,15 @@ h1, h2, h3 {
     margin:.8em 0 .2em 0;
     padding:0;
 }
-p {
-    margin:.4em 0 .8em 0;
-    padding:0;
-}
 /* Header styles */
 
 div#header {
     width: 100%;
-    background-image: url( /static/d0/images/strip_grey2.jpg );
+    background-image: url( /static/images/strip_grey2.jpg );
+    background-repeat:repeat-x;
 /*
     clear: both;
     float: left;
-	background-repeat:repeat-x;
 */
 /*	display: none;  /* for testing functionality, more space on page */
 	margin-bottom: 4px;
