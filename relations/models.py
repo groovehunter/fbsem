@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+from categories.models import ItemCollection
 
 
 class Person(models.Model):
@@ -7,6 +9,9 @@ class Person(models.Model):
     first_name  = models.CharField(max_length=20, null=True)
     last_name   = models.CharField(max_length=20, null=True)
     dt_added    = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
 
 
 class PeopleGroup(models.Model):
@@ -21,5 +26,5 @@ class PeopleGroup(models.Model):
     type    = models.CharField(max_length=2, choices=TYPES)
     dt_added= models.DateTimeField(auto_now_add=True)
 
-class Player(models.Model):
-    name        = models.CharField(max_length=40, unique=True)
+    def __str__(self):
+        return self.name 

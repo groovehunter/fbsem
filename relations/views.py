@@ -7,16 +7,17 @@ from .models import Person, PeopleGroup
 from django.http import HttpResponse
 from django.shortcuts import render
 from fbsem.Controller import Controller
-from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
-from fbsem.view_helpers import GenericFlow
+#from django.contrib.auth.decorators import login_required
+#from django.utils.decorators import method_decorator
+from fbsem.ViewController import ViewControllerSupport
 
 
 class PersonView(TemplateView):
     template_name = 'relations/about.html'
     #model = Person
 
-class PersonListView(ListView, GenericFlow):
+# XXX remove GenericFlow , use ViewControllerSupport
+class PersonListView(ListView, ViewControllerSupport):
     model = Person
 
     def get_context_data(self, **kwargs):
@@ -30,13 +31,16 @@ class PersonListView(ListView, GenericFlow):
         return context
 
     def get(self, request, *args, **kwargs):
-        template_name = 'relations/person_list.html'
+        self.template_name = 'relations/person_list.html'
         self.object_list = self.get_queryset()
         self.fields_noshow = ['peoplegroup']
-        context = self.get_context_data()
-        return render(request, template_name, context)
+        self.init_ctrl()
+        self.context.update(self.get_context_data())
+        return self.render()
 
-class PeopleGroupListView(ListView, GenericFlow):
+
+
+class PeopleGroupListView(ListView, ViewControllerSupport):
     model = PeopleGroup
 
     def get_context_data(self, **kwargs):
@@ -49,14 +53,14 @@ class PeopleGroupListView(ListView, GenericFlow):
         return context
 
     def get(self, request, *args, **kwargs):
-        template_name = 'relations/generic_list.html'
+        self.template_name = 'relations/generic_list.html'
         self.object_list = self.get_queryset()
         self.fields_noshow = ['people']
-        context = self.get_context_data()
-        return render(request, template_name, context)
+        self.context.update(self.get_context_data())
+        return self.render()
 
 
-class PersonDetailView(DetailView, GenericFlow):
+class PersonDetailView(DetailView, ViewControllerSupport):
     model = Person
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -67,13 +71,14 @@ class PersonDetailView(DetailView, GenericFlow):
         return context
 
     def get(self, request, *args, **kwargs):
-        template_name = 'fbsem/generic_detail_obj.html'
+        self.template_name = 'fbsem/generic_detail_obj.html'
         self.object = self.get_object()
         self.fields_noshow = ['peoplegroup']
-        context = self.get_context_data()
-        return render(request, template_name, context)
+        self.init_ctrl()
+        self.context.update(self.get_context_data())
+        return self.render()
 
-class PeopleGroupDetailView(DetailView, GenericFlow):
+class PeopleGroupDetailView(DetailView, ViewControllerSupport):
     model = PeopleGroup
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -84,22 +89,11 @@ class PeopleGroupDetailView(DetailView, GenericFlow):
         return context
 
     def get(self, request, *args, **kwargs):
-        template_name = 'fbsem/generic_detail_obj.html'
+        self.template_name = 'fbsem/generic_detail_obj.html'
         self.object = self.get_object()
         self.fields_noshow = ['people']
-        context = self.get_context_data()
-        return render(request, template_name, context)
-
-
-class PersonCreate(CreateView):
-    model = Person
-
-class PersonUpdate(UpdateView):
-    model = Person
-
-class PersonDelete(DeleteView):
-    model = Person
-
+        sef.context.update(self.get_context_data())
+        return self.render()
 
 #### wow
 

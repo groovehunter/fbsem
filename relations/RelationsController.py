@@ -2,7 +2,7 @@
 
 from fbsem.Controller import Controller
 
-from .models import Person, PeopleGroup, Player
+from .models import Person, PeopleGroup
 
 
 class RelationsController(Controller):
