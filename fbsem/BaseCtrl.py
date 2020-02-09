@@ -1,7 +1,8 @@
 
 import yaml
 from os.path import join
-from fbsem.settings import BASE_DIR
+from fbsem.settings import BASE_DIR, TMPPATH
+import logging
 
 
 class BaseCtrl:
@@ -41,3 +42,15 @@ class BaseCtrl:
 
         self.context['menudata'] = menudata
 #        self.lg.debug('menudata %s', menudata)
+
+
+    def init_logging(self):
+        self.lg = logging.getLogger('test')
+        if not getattr(self.lg, 'handler_set', None):
+            fh = logging.handlers.TimedRotatingFileHandler(TMPPATH+'/log/debug.log', when='midnight')
+            fmt = '%(module)s,%(lineno)d - %(levelname)s - %(message)s'
+            form = logging.Formatter(fmt=fmt)
+            fh.setFormatter(form)
+            self.lg.addHandler(fh)
+            self.lg.setLevel(logging.DEBUG)
+        self.handler_set = True

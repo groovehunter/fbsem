@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 
-from fbsem.settings import TMPPATH
+from fbsem.settings import TMPPATH, DEBUG
 from .BaseCtrl import BaseCtrl
 
 import logging
@@ -10,7 +10,8 @@ import logging
 class Controller(BaseCtrl):
 
     def __init__(self, request):
-        self.init_logging()
+        if DEBUG:
+            self.init_logging()
         self.request = request
         self.init_ctrl()
 
@@ -43,15 +44,3 @@ class Controller(BaseCtrl):
         if msg:
             url = url + '?msg=' + msg
         return HttpResponseRedirect(url)
-
-
-    def init_logging(self):
-        self.lg = logging.getLogger('test')
-        if not getattr(self.lg, 'handler_set', None):
-            fh = logging.handlers.TimedRotatingFileHandler(TMPPATH+'/log/debug.log', when='midnight')
-            fmt = '%(module)s,%(lineno)d - %(levelname)s - %(message)s'
-            form = logging.Formatter(fmt=fmt)
-            fh.setFormatter(form)
-            self.lg.addHandler(fh)
-            self.lg.setLevel(logging.DEBUG)
-        self.handler_set = True
