@@ -1,0 +1,20 @@
+{% extends "fbsem/base.html" %}
+
+{% block content %}
+<h3> Edit User with player </h3>
+<form action="" method="post">
+    {% csrf_token %}
+      <h4>Player</h4>
+    <div>
+      {{ p_form.as_p }}
+    </div>
+
+      <h4>User</h4>
+    <div class="">
+      {{ u_form.username }}
+      {{ u_form.username.value }}
+      {{ u_form.as_p }}
+    </div>
+    <input type="submit" value="Save" />
+</form>
+{% endblock %}
