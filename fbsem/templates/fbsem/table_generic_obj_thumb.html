@@ -35,13 +35,17 @@
     </td>
     {% endif %}
     <td>
-      <a href="{{url_detail}}/{{item.id}}">Edit</a>
+      <a href="{{url_detail}}/{{item.id}}">{{item.name}}</a>
     </td>
 
     {% for k in keys %}
       <td>{{item|getattr:k}}</td>
     {% endfor %}
-    <td><a href="{{url_detail}}/{{item.id}}">Details</a></td>
+    <td>
+      <a href="{{url_detail}}/{{item.id}}">
+        <img src="{{prefix_static}}{{url_icon}}/{{item.filepath}}thumb/{{item.filename}}" />
+      </a>
+    </td>
 </tr>
 
 {% endfor %}
