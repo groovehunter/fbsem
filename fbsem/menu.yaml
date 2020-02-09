@@ -19,25 +19,31 @@
 
 - konto:
     id:      user
-    name:    Benutzerkonto
-    href:    accounts/
+    name:    User, Konto, Player
+    href:    users/
     links:
       - name:    Login
-        href:    /accounts/login
+        href:    /users/login
       - name:    Logout
-        href:    /accounts/logout
+        href:    /users/logout
       - name:    Benutzer verwalten
-        href:    /accounts/profile
+        href:    /users/profile
 
 - admin:
     id:      admin
     name:    Administration
     href:    admin/
     links:
-      - name:    cat
-        href:    /admin/categories
-      - name:    people
-        href:    /admin/people
+      - name:    categories
+        href:    /admin/categories/
+      - name:    Relations
+        href:    /admin/relations/
+      - name:    Notes
+        href:    /admin/notes/
+      - name:    Auth
+        href:    /admin/auth/
+      - name:    Users
+        href:    /admin/users/
 
 
 - rel:
@@ -59,3 +65,13 @@
         href:    /notes/
       - name:    Notiz
         href:    /notes/note/1
+
+- sk:
+    id:   sk
+    name: Systemisch Konsensieren
+    href: sk/
+    links:
+      - name: Themen
+        href: /sk/topic/
+      - name: Aktuell
+        href: /sk/new
