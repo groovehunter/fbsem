@@ -7,10 +7,10 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from fbsem.Controller import Controller
 
-from fbsem.view_helpers import GenericFlow
+from fbsem.ViewController import ViewControllerSupport
 
 
-class NoteListView(ListView, GenericFlow):
+class NoteListView(ListView, ViewControllerSupport):
     model = Note
 
     def get_context_data(self, **kwargs):
@@ -23,14 +23,15 @@ class NoteListView(ListView, GenericFlow):
         return context
 
     def get(self, request, *args, **kwargs):
-        template_name = 'relations/generic_list.html'
+        self.template_name = 'fbsem/generic_list_obj.html'
         self.object_list = self.get_queryset()
         self.fields_noshow = []
-        context = self.get_context_data()
-        return render(request, template_name, context)
+        self.init_ctrl()
+        self.context.update(self.get_context_data())
+        return self.render()
 
 
-class NoteDetailView(DetailView, GenericFlow):
+class NoteDetailView(DetailView, ViewControllerSupport):
     model = Note
 
     def get_context_data(self, **kwargs):
@@ -42,9 +43,9 @@ class NoteDetailView(DetailView, GenericFlow):
         return context
 
     def get(self, request, *args, **kwargs):
-        template_name = 'fbsem/generic_detail_obj.html'
+        self.template_name = 'fbsem/generic_detail_obj.html'
         self.object = self.get_object()
         self.fields_noshow = []
-        context = self.get_context_data()
-        return render(request, template_name, context)
- 
+        self.init_ctrl()
+        self.context.update(self.get_context_data())
+        return self.render()
