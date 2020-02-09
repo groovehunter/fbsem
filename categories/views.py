@@ -1,10 +1,18 @@
 
 from .CategoryController import CategoryController
 
-from fbsem.view_helpers import GenericFlow
-from django.views.generic import ListView, DetailView
+#from fbsem.view_helpers import GenericFlow
+from django.views.generic import ListView, DetailView, UpdateView
 from .models import Item
 from fbsem.ViewController import ViewControllerSupport
+
+#from .forms import ItemUpdateForm, ItemCreationForm
+
+class ItemUpdateView(UpdateView):
+    model = Item
+    template_name_suffix = '_update_form'
+    fields = ('name', 'category')
+    success_url = '/cat/item/'
 
 
 
@@ -31,7 +39,7 @@ def new(request):
 
 
 
-class ItemDetailView(DetailView, GenericFlow, ViewControllerSupport):
+class ItemDetailView(DetailView, ViewControllerSupport):
     model = Item
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -42,7 +50,7 @@ class ItemDetailView(DetailView, GenericFlow, ViewControllerSupport):
         return context
 
     def get(self, request, *args, **kwargs):
-        self.template_name = 'fbsem/generic_detail_obj.html'
+        self.template_name = 'categories/generic_detail_obj_img.html'
         self.object = self.get_object()
         self.fields_noshow = []
         self.init_ctrl()
@@ -50,7 +58,7 @@ class ItemDetailView(DetailView, GenericFlow, ViewControllerSupport):
         return self.render()
 
 
-class ItemListView(ListView, GenericFlow, ViewControllerSupport):
+class ItemListView(ListView, ViewControllerSupport):
     model = Item
 
     def get_context_data(self, **kwargs):
@@ -59,12 +67,13 @@ class ItemListView(ListView, GenericFlow, ViewControllerSupport):
         context.update(c)
         context['rowbox'] = True
         context['url'] = '/cat/item'
-        context['url_detail'] = '/cat/item/d'
+        context['url_detail'] = '/cat/item'
+        context['url_icon'] = 'images/icons'
         return context
 
     def get(self, request, *args, **kwargs):
         self.object_list = self.get_queryset()
-        self.fields_noshow = []
+        self.fields_noshow = ['filepath','filename','itemcollection']
         self.init_ctrl()
         self.template_name = 'fbsem/generic_list_obj.html'
         self.context.update(self.get_context_data())
