@@ -1,3 +1,14 @@
+Django==2.2
+PyYaml
+django-import-export 
+mysqlclient
+wikipedia-API
+
+### nice2have
+#facebook-sdk
+
+
+## socketio test
 enum-compat==0.0.2
 eventlet==0.21.0
 python-engineio
