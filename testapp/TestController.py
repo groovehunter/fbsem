@@ -1,18 +1,18 @@
 
 from fbsem.Controller import Controller
-import facebook
-import wikipediaapi
+#import facebook
+#import wikipediaapi
 from testapp.credentials import *
 
 #graph = facebook.GraphAPI(access_token=access_token, version="2.12")
-graph = facebook.GraphAPI(access_token=user_token, version="2.12")
-
+#graph = facebook.GraphAPI(access_token=user_token, version="2.12")
+"""
 def print_categorymembers(categorymembers, level=0, max_level=1):
     for c in categorymembers.values():
         print("%s: %s (ns: %d)" % ("*" * (level + 1), c.title, c.ns))
         if c.ns == wikipediaapi.Namespace.CATEGORY and level < max_level:
             print_categorymembers(c.categorymembers, level=level + 1, max_level=max_level)
-
+"""
 
 
 class TestController(Controller):
@@ -43,7 +43,7 @@ class TestController(Controller):
         if not cat:
             return self.render()
         cat = self.wiki.page("Kategorie:"+cat)
-        debug = cat.categorymembers
+#        debug = cat.categorymembers
         self.context['debug'] = debug
         self.context['values'] = debug
 
