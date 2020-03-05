@@ -16,20 +16,26 @@ class ViewControllerSupport(BaseCtrl):
         self.context = {}
         self.msg = ''
         self.context['logged_in'] = True
-        self.context['prefix_static'] = '/static/'
+        self.prefix_static = '/static/'
+        self.context['prefix_static'] = self.prefix_static
+
         self.context['common_static'] = '/static/'
         self.yaml_load()
         self.yamlmenu()
+        self.js_list = []
+        self.js_list_common = []
+        self.css_list_common = []
 
         if self.request.GET:
             GET = self.request.GET
             if 'msg' in GET:
                 self.context['msg'] = GET['msg']
 
+
     def listview_helper(self):
         keys = self.model._meta.get_fields()
         field_names = [k.name for k in keys]
-        self.lg.debug('removed fields from display: %s', self.fields_noshow)
+        #self.lg.debug('removed fields from display: %s', self.fields_noshow)
         for f in self.fields_noshow:
             if f in field_names:
                 field_names.remove(f)

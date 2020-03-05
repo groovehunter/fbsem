@@ -1,12 +1,17 @@
 Django==2.2
-PyYAML
-mysqlclient
-wikipedia-API
-facebook-sdk
-django-import-export
 
 #phaser
 
+PyYaml
+django-import-export 
+mysqlclient
+wikipedia-API
+
+### nice2have
+#facebook-sdk
+
+
+## socketio test
 enum-compat==0.0.2
 eventlet==0.21.0
 python-engineio

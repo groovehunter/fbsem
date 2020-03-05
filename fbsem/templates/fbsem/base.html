@@ -32,7 +32,8 @@
 <!--			    MIDDLE			-->
 <div class="col1">
   <p><div class="msg">{{msg}}</div></p>
-
+<div id="outerrmsg"></div>
+<div id="outmsg"></div>
   {% block content %}
 
 		<!-- main content area -->
@@ -63,7 +64,7 @@
 			<td width="25%">
 			</td>
 			<td width="50%">
-footer stuff
+        {% include "fbsem/footer.html" %}
 			</td>
 			<td width="25%" align="right">
 			</td>

@@ -1,0 +1,37 @@
+{% extends "fbsem/base.html" %}
+{% load getattr %}
+{% load static %}
+{% block content %}
+{% csrf_token %}
+
+<h3>{{app}} - {{modl}} </h3>
+
+[ <a href="{{url}}/{{object.id|add:"-1"}}">prev</a>
+&nbsp;|&nbsp;
+<a href="{{url}}/{{object.id|add:"1"}}">next</a> ]
+--- <a href="{{url_list}}">Alle</a>
+
+<p>Details for <b>{{object.name}}</b></p>
+
+<table>
+{% for k in keys %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{k}}</td>
+    <td>{{object|getattr:k}}</td>
+  </tr>
+{% endfor %}
+</table>
+
+<h4>Items</h4>
+<table>
+{% for i in items %}
+  <tr class="{% cycle 'odd' 'even' %}">
+    <td>{{i}}</td>
+    <td><img src="{{prefix_static}}{{i.get_img_url}}" /></td>
+    <td><button type="button" class="sel" id="act_{{i.id}}" size="200" />
+  </tr>
+{% endfor %}
+</table>
+
+
+{% endblock %}

@@ -2,7 +2,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from relations.models import Person
-from categories.models import ItemCollection
+from categories.models import ItemCollection, Inventory
 
 
 class Player(models.Model):
@@ -12,7 +12,7 @@ class Player(models.Model):
 
     def __str__(self):
         return self.name
-        
+
 
 class CustomUser(AbstractUser):
 
@@ -20,6 +20,8 @@ class CustomUser(AbstractUser):
     person      = models.OneToOneField(Person, on_delete=models.CASCADE, null=True)
     dt_added    = models.DateTimeField(auto_now_add=True)
     player      = models.OneToOneField(Player, on_delete=models.CASCADE, null=True)
+#    collections = models.ForeignKey()
+    inventory   = models.OneToOneField(Inventory, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.username
