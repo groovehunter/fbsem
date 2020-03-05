@@ -35,7 +35,7 @@ class ViewControllerSupport(BaseCtrl):
     def listview_helper(self):
         keys = self.model._meta.get_fields()
         field_names = [k.name for k in keys]
-        self.lg.debug('removed fields from display: %s', self.fields_noshow)
+        #self.lg.debug('removed fields from display: %s', self.fields_noshow)
         for f in self.fields_noshow:
             if f in field_names:
                 field_names.remove(f)

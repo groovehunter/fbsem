@@ -18,7 +18,7 @@ $(document).ready(function() {		// doc ready
 
 	$('.sel').click(function() {
 		var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
-
+    console.log(csrftoken);
 		var login = this.id.substr(4,20);
 		//Check = confirm('Wollen Sie "'+login+'" übernehmen?');
     Check = true;
@@ -41,8 +41,6 @@ $(document).ready(function() {		// doc ready
 				retryLimit: 1,
 			  })
 				.done(function(rtext) {
-					alert(rtext);
-					lname.css('display','none');
 					$('#outmsg').html(rtext);
 
 				})

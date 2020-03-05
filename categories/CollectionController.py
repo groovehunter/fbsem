@@ -33,7 +33,7 @@ class CollectionController(Controller):
         self.lg.debug(post)
         html = 'okay'
         response = HttpResponse(html)
-        return self.response
+        return response
 
 
 #    def coll(self):
