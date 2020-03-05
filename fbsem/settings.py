@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
     'fbsem',
     'testapp',
     'categories',
@@ -26,6 +27,8 @@ INSTALLED_APPS = [
     'import_export',
     'users',
     'sk',
+    'activities',
+    'polymorphic',
     #    'socketio',
 ]
 
