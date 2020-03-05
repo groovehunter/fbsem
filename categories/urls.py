@@ -3,6 +3,7 @@ from django.urls import path, include
 from . import views
 from .CategoryListView import CategoryListView
 from .views import ItemListView, ItemDetailView, ItemUpdateView
+from .views import GenericDetailView, CollectionDetailView
 
 
 
@@ -17,4 +18,6 @@ urlpatterns = [
     path('import_lookup', views.import_cat),
     path('import_do', views.import_process),
     path('new', views.new),
+    path('my', views.my),
+    path('coll/<int:pk>', CollectionDetailView.as_view()),
 ]

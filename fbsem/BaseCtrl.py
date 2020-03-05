@@ -44,6 +44,24 @@ class BaseCtrl:
 #        self.lg.debug('menudata %s', menudata)
 
 
+    def do_js_head(self):
+        """ rename to do_head // add additional js and css links to head """
+        js_head = '' # or js_head
+        for line in self.js_list_common:
+            js_head += '''<script src="%sjs/%s" type="text/javascript"></script>
+''' %(self.prefix_static, line)
+        for line in self.js_list:
+            js_head += '''<script src="%sjs/%s" type="text/javascript"></script>
+''' %(self.prefix_static, line)
+        self.context['js_head'] = js_head
+
+        css_head = ''
+        for line in self.css_list_common:
+            css_head += '''<link href="%scss/%s" type="text/css" rel="stylesheet" />
+''' %(self.prefix_static, line)
+        self.context['css_head'] = css_head
+
+
     def init_logging(self):
         self.lg = logging.getLogger('test')
         if not getattr(self.lg, 'handler_set', None):

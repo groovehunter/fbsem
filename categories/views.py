@@ -1,9 +1,10 @@
 
 from .CategoryController import CategoryController
+from .CollectionController import CollectionController
 
 #from fbsem.view_helpers import GenericFlow
 from django.views.generic import ListView, DetailView, UpdateView
-from .models import Item
+from .models import Item, ItemCollection
 from fbsem.ViewController import ViewControllerSupport
 
 #from .forms import ItemUpdateForm, ItemCreationForm
@@ -36,6 +37,47 @@ def import_process(request):
 def new(request):
     ctrl = CategoryController(request)
     return ctrl.get_name()
+
+def my(request):
+    ctrl = CollectionController(request)
+    return ctrl.my()
+
+def coll(request):
+    ctrl = CollectionController(request)
+    return ctrl.coll()
+
+
+class GenericDetailView(DetailView, ViewControllerSupport):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c = self.listview_helper()
+        context.update(c)
+        return context
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.fields_noshow = []
+        self.init_ctrl()
+        self.context.update(self.get_context_data())
+        return self.render()
+
+
+class CollectionDetailView(GenericDetailView):
+    model = ItemCollection
+    template_name = 'fbsem/generic_obj_sublist.html'
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.fields_noshow = ['items']
+        self.init_ctrl()
+        self.js_list_common = [
+            'collect.js',
+        ]
+        self.do_js_head()
+        self.context.update(self.get_context_data())
+        self.context['items'] = self.object.items.all()
+
+        return self.render()
 
 
 

@@ -24,8 +24,25 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+    def get_img_url(self):
+        return 'images/icons/%s200x200/%s' %(self.filepath, self.filename)
 
 
 class ItemCollection(models.Model):
     name    = models.CharField(max_length=40, unique=True)
     items   = models.ManyToManyField(Item)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return '/cat/coll/' + str(self.id)
+
+
+class Inventory(models.Model):
+    title       = models.CharField(max_length=40)
+#    user       = models.OneToOneField(CustomUser)
+    collections = models.ManyToManyField(ItemCollection)
+
+    def __str__(self):
+        return self.title
