@@ -2,6 +2,8 @@ from fbsem.Controller import Controller
 
 from .models import Item
 
+# mnove to ajax ctrl
+from django.http import HttpResponse
 
 
 class CollectionController(Controller):
@@ -26,5 +28,13 @@ class CollectionController(Controller):
         self.template = 'categories/coll.html'
         return self.render()
 
+    def add(self):
+        post = self.request.POST.copy()
+        self.lg.debug(post)
+        html = 'okay'
+        response = HttpResponse(html)
+        return self.response
+
+
 #    def coll(self):
-#        coll = 
+#        coll =

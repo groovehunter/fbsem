@@ -2,6 +2,7 @@
 {% load getattr %}
 {% load static %}
 {% block content %}
+{% csrf_token %}
 
 <h3>{{app}} - {{modl}} </h3>
 
@@ -27,7 +28,7 @@
   <tr class="{% cycle 'odd' 'even' %}">
     <td>{{i}}</td>
     <td><img src="{{prefix_static}}{{i.get_img_url}}" /></td>
-    <td><button type="button" id="action_{{i.id}}" size="200" />
+    <td><button type="button" class="sel" id="act_{{i.id}}" size="200" />
   </tr>
 {% endfor %}
 </table>

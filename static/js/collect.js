@@ -1,3 +1,7 @@
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
 
 $(document).ready(function() {		// doc ready
 
@@ -12,28 +16,24 @@ $(document).ready(function() {		// doc ready
   });
 
 
-	$('.delete').click(function() {
+	$('.sel').click(function() {
 		var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
 
-		$('#sub').fadeOut('slow');
-		//$('#delete_div').css('visibility','visible');  // warum geht fade nicht?
-		//$('#delete_div').fadeIn('slow');
 		var login = this.id.substr(4,20);
-		Check = confirm('Wollen Sie den Benutzer "'+login+'" wirklich löschen?');
+		//Check = confirm('Wollen Sie "'+login+'" übernehmen?');
+    Check = true;
 		if (Check == true) {
           var data = {
 						'login' : login,
 						'csrf_token' : csrftoken,
   				}
-          var lname = $('#'+login);
-          var sname = lname.find('span[name]');
           var success = false;
 
 			var li = jQuery('#loadingicon');
 			li.css('visibility', 'visible');
 
 			$.ajax({
-				url: prefix+"/konto/unterkonten/delete/",
+				url: "/cat/coll/add/",
 				type: "POST",
 				data: data,
 				dataType: "text",
@@ -47,7 +47,6 @@ $(document).ready(function() {		// doc ready
 
 				})
 				.fail(function(rtext) {
-					rtext = rtext.substr(5);
 					$('#outerrmsg').html(rtext);
 
 				})
@@ -56,8 +55,6 @@ $(document).ready(function() {		// doc ready
 				});
 				return false;
 			}; // if check
-		}); 	 // .delete
+		}); 	 // .sel
 
-    }); // submit login
-
-	});		// document ready
+});		// document ready

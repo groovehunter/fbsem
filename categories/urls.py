@@ -20,4 +20,5 @@ urlpatterns = [
     path('new', views.new),
     path('my', views.my),
     path('coll/<int:pk>', CollectionDetailView.as_view()),
+    path('coll/add/', views.add),
 ]

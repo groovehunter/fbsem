@@ -38,6 +38,8 @@ def new(request):
     ctrl = CategoryController(request)
     return ctrl.get_name()
 
+### CollectionController
+
 def my(request):
     ctrl = CollectionController(request)
     return ctrl.my()
@@ -45,6 +47,10 @@ def my(request):
 def coll(request):
     ctrl = CollectionController(request)
     return ctrl.coll()
+
+def add(request):
+    ctrl = CollectionController(request)
+    return ctrl.add()
 
 
 class GenericDetailView(DetailView, ViewControllerSupport):
