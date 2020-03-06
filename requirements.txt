@@ -1,4 +1,7 @@
 Django==2.2
+
+#phaser
+
 PyYaml
 django-import-export 
 mysqlclient
