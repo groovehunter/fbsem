@@ -1,0 +1,18 @@
+<h3>My Inventory : {{inv}}</h3>
+
+<div id="cur_coll">
+  <p><b>Current collections</b></p>
+
+  {% if not collections %}
+    Currrently you have no collections.
+  {% else %}
+    {% for coll in collections %}
+      <li><a href="{{coll.get_absolute_url}}">{{coll.name}}</a></li>
+    {% endfor %}
+  {% endif %}
+</div>
+
+<div id="temp_basket">
+  <p><b>Your temporary basket</b></p>
+  <div id="to_add"></div>
+</div>

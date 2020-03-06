@@ -10,15 +10,16 @@ class CollectionController(Controller):
 
     def __init__(self, request):
         Controller.__init__(self, request)
+        self.user = self.request.user
+
 
     def index(self):
         self.template = 'categories/index.html'
         return self.render()
 
     def my(self):
-        user = self.request.user
         #pl = user.player
-        inv = user.inventory
+        inv = self.user.inventory
 
         collections = inv.collections.all()
         self.lg.debug(collections)
@@ -30,7 +31,11 @@ class CollectionController(Controller):
 
     def add(self):
         post = self.request.POST.copy()
-        self.lg.debug(post)
+        tid = post.get('tid')
+        user = self.request.user
+        inv = user.inventory
+        #inv.add(tid)
+        self.lg.debug(inv)
         html = 'okay'
         response = HttpResponse(html)
         return response

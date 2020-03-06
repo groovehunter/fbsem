@@ -8,8 +8,8 @@ import logging
 class BaseCtrl:
     """ common methods for gui """
 
-    def yaml_load(self):
-        c = open(join(BASE_DIR, 'fbsem/menu.yaml'), encoding='utf8').read()
+    def yaml_load(self, name):
+        c = open(join(BASE_DIR, 'fbsem/'+name+'.yaml'), encoding='utf8').read()
         self.tree = yaml.load(c)
 
     def yamlmenu(self):
@@ -19,11 +19,8 @@ class BaseCtrl:
         menudata = []
 
         for section in self.tree:
-            #self.lg.debug('section %s', section )
             sec = list(section.values())[0]
             id = sec['id']
-            #self.lg.debug('id %s', id )
-            #self.lg.debug('sec %s', sec )
             if True:
                 menudata.append( sec )
             else:
@@ -41,8 +38,6 @@ class BaseCtrl:
                 menudata.append( cus_sec )
 
         self.context['menudata'] = menudata
-#        self.lg.debug('menudata %s', menudata)
-
 
     def do_js_head(self):
         """ rename to do_head // add additional js and css links to head """

@@ -15,19 +15,31 @@ class Controller(BaseCtrl):
         self.request = request
         self.init_ctrl()
 
+        if request.user.is_authenticated:
+            self.init_user_and_inventory()
+
     def init_ctrl(self):
         self.context = {}
         self.msg = ''
         self.context['logged_in'] = True
         self.context['prefix_static'] = '/static/'
         self.context['common_static'] = '/static/'
-        self.yaml_load()
+        self.yaml_load('menu')
         self.yamlmenu()
+        if self.request.user.is_staff:
+            self.yaml_load('menu_admin')
+            self.yamlmenu()
+
 
         if self.request.GET:
             GET = self.request.GET
             if 'msg' in GET:
                 self.context['msg'] = GET['msg']
+
+    def init_user_and_inventory(self):
+        user = self.request.user
+        self.context['inv'] = user.inventory
+        #self.lg.debug(user.inventory)
 
 
     def render(self):

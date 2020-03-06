@@ -1,0 +1,19 @@
+# used for init. of menu
+# and permission system
+
+
+- admin:
+    id:      admin
+    name:    Administration
+    href:    admin/
+    links:
+      - name:    categories
+        href:    /admin/categories/
+      - name:    Relations
+        href:    /admin/relations/
+      - name:    Notes
+        href:    /admin/notes/
+      - name:    Auth
+        href:    /admin/auth/
+      - name:    Users
+        href:    /admin/users/

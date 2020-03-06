@@ -13,20 +13,6 @@ img { border: none; }
     font-size: 110%;
     margin: 5px;
 }
-.ajaxmsg {
-    color: #333;
-    font-weight: bold;
-    margin: 2px 0px 0px 10px;
-}
-
-.simple {
-    padding: 1px 3px;
-    border: 1px;
-    vertical-align: middle;
-    margin-top: 4px;
-}
-.simple tr { height: 26px; }
-.simple td { padding: 6px; }
 
 .odd { background: #e6e6e6; }
 .even { background: #ffffff; }
@@ -63,13 +49,6 @@ img { border: none; }
 	display:inline;
 }
 
-#sub {
-	display: none;
-	width: 600px;
-}
-#subform {
-	width: 100%;
-}
 .nodispl {
 	display: none;
 }
@@ -86,14 +65,6 @@ img { border: none; }
 #loadingicon {
 	visibility: hidden;
 	text-align: center;
-}
-
-.innerfields {
-margin-left: 60px;
-}
-
-fieldset.innerfields {
-    border: none;
 }
 
 .grey {

@@ -31,22 +31,6 @@
       - name:    Benutzer verwalten
         href:    /users/profile
 
-- admin:
-    id:      admin
-    name:    Administration
-    href:    admin/
-    links:
-      - name:    categories
-        href:    /admin/categories/
-      - name:    Relations
-        href:    /admin/relations/
-      - name:    Notes
-        href:    /admin/notes/
-      - name:    Auth
-        href:    /admin/auth/
-      - name:    Users
-        href:    /admin/users/
-
 
 - rel:
     id:      rel

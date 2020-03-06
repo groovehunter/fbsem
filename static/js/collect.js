@@ -18,16 +18,11 @@ $(document).ready(function() {		// doc ready
 
 	$('.sel').click(function() {
 		var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
-    console.log(csrftoken);
-		var login = this.id.substr(4,20);
-		//Check = confirm('Wollen Sie "'+login+'" übernehmen?');
-    Check = true;
-		if (Check == true) {
-          var data = {
-						'login' : login,
-						'csrf_token' : csrftoken,
-  				}
-          var success = false;
+		var tid = this.id.substr(4,20);
+    var data = {
+			'tid' : tid,
+			'csrf_token' : csrftoken,
+    }
 
 			var li = jQuery('#loadingicon');
 			li.css('visibility', 'visible');
@@ -41,18 +36,19 @@ $(document).ready(function() {		// doc ready
 				retryLimit: 1,
 			  })
 				.done(function(rtext) {
+          var imgtag = $('#img_'+tid).html();
 					$('#outmsg').html(rtext);
-
+          $('#to_add').append(imgtag);
+          console.log('ajax success - img tag copied');
 				})
 				.fail(function(rtext) {
+          console.log('FAIL');
 					$('#outerrmsg').html(rtext);
-
 				})
 				.always(function(xhr, status) {
 					console.log('ajax done');
 				});
 				return false;
-			}; // if check
 		}); 	 // .sel
 
 });		// document ready

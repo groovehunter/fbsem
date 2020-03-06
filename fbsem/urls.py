@@ -10,6 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('start/',  include('testapp.urls')),
     path('cat/',   include('categories.urls')),
+    path('categories/',   include('categories.urls')),
     path('rel/',   include('relations.urls')),
     path('notes/',   include('notes.urls')),
     path('sk/',   include('sk.urls')),

@@ -7,3 +7,6 @@ db.sqlite3
 static/images/icons/*
 
 */migrations/*
+fixtures/*
+
+

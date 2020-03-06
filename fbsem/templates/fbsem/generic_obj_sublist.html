@@ -13,7 +13,7 @@
 
 <p>Details for <b>{{object.name}}</b></p>
 
-<table>
+<table class="small">
 {% for k in keys %}
   <tr class="{% cycle 'odd' 'even' %}">
     <td>{{k}}</td>
@@ -23,12 +23,14 @@
 </table>
 
 <h4>Items</h4>
+
 <table>
 {% for i in items %}
   <tr class="{% cycle 'odd' 'even' %}">
     <td>{{i}}</td>
-    <td><img src="{{prefix_static}}{{i.get_img_url}}" /></td>
-    <td><button type="button" class="sel" id="act_{{i.id}}" size="200" />
+    <td id="img_{{i.id}}">
+      <img class="sel" id="act_{{i.id}}" src="{{prefix_static}}{{i.get_img_url}}" />
+    </td>
   </tr>
 {% endfor %}
 </table>

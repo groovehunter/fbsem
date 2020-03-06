@@ -20,8 +20,7 @@
 	<div id="container">
 
 <div id="header" align="center">
-	<a href="/">HOME
-  </a>
+	<a href="/">HOME</a>
 </div>
 
 
@@ -33,16 +32,23 @@
 <div class="col1">
   <p><div class="msg">{{msg}}</div></p>
 <div id="outerrmsg"></div>
-<div id="outmsg"></div>
+<div class="simple" id="outmsg"></div>
   {% block content %}
 
 		<!-- main content area -->
 	{% endblock %}
+  <hr>
+  <div id="inventory">
+    {% include "users/inventory.html" %}
+  </div>
 </div>
 
 <div class="col2">
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
+  {% if user.is_staff %}
+    {% include "fbsem/nav_admin.html" %}
+  {% endif %}
   {% include "fbsem/nav.html" %}
   <a href="{% url 'logout' %}">Abmelden </a>
 {% else %}
