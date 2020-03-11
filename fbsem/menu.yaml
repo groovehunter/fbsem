@@ -5,18 +5,18 @@
 - category:
     id:      category
     name:    Category
-    href:    cat/
+    href:    categories/
     links:
       - name:    Categories List
-        href:    /cat/index
+        href:    /categories/index
       - name:    Item List
-        href:    /cat/item/index
+        href:    /categories/item/index
       - name:    Import
-        href:    /cat/import
+        href:    /categories/import
       - name:    Entries in Category
-        href:    /cat/1/entries
+        href:    /categories/1/entries
       - name:    My Inventory
-        href:    /cat/my
+        href:    /categories/my
 
 
 - konto:

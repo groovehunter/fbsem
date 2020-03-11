@@ -1,6 +1,7 @@
 <html>
 <head>
-{% load static %}
+{% load static %}{% load fbsem_extras %}
+
   <title>fbsem</title>
 
   <link href="/static/css/common.css" type="text/css" static="all" rel="stylesheet" />
@@ -42,14 +43,16 @@
     {% include "users/inventory.html" %}
   </div>
 </div>
-
 <div class="col2">
+
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
   {% if user.is_staff %}
-    {% include "fbsem/nav_admin.html" %}
+    <div><a href="/admin">Admin area</a></div>
   {% endif %}
   {% include "fbsem/nav.html" %}
+
+
   <a href="{% url 'logout' %}">Abmelden </a>
 {% else %}
   <p>You are not logged in</p>

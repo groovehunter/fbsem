@@ -1,6 +1,6 @@
 {% for section in menudata %}
 
-    {% ifequal arg1 section.href|cut:"/" %}
+    {% ifequal arg1 section.href %}
 	<div class="menubox menubox-active">
     {% else %}
 	<div class="menubox" style="padding-bottom: 0px;">
@@ -8,10 +8,11 @@
 
     <a href="/{{section.href}}">{{section.name}}</a>
 
+{% ifequal arg1 section.href %}
 	<div class="subbox">
 	    <ul>
 	    {% for item in section.links%}
-		{% ifequal path item.href %}
+		{% ifequal request.path item.href %}
 		    <li class="item-active">
 		{% else %}
 		    <li class="item">
@@ -21,6 +22,19 @@
 	    {% endfor %}
 	    </ul>
 	</div>
+{% else %}
+		<b style="margin-left: -21px; margin-right: 0px; background-color: #fff; margin-top: -2px;" class="niftycorners">
+		<b class="rb8"></b>
+		<b class="rb7"></b>
+		<b class="rb6"></b>
+		<b class="rb5"></b>
+		<b class="rb4"></b>
+		<b class="rb3"></b>
+		<b class="rb2"></b>
+		<b class="rb1"></b>
+		</b>
+{% endifequal %}
+
     </div>  <!-- end box -->
 
 {% endfor %}

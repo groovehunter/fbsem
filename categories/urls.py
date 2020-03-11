@@ -14,7 +14,7 @@ urlpatterns = [
     path('item/<int:pk>', ItemDetailView.as_view()),
     path('item/<int:pk>/edit', ItemUpdateView.as_view()),
 
-    path('show/<cat_id>', views.show),
+    path('show/<cat_id>', views.show, name='category-detailed'),
     path('import', views.import_cat),
     path('import_lookup', views.import_cat),
     path('import_do', views.import_process),

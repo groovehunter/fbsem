@@ -7,6 +7,7 @@ from .BaseCtrl import BaseCtrl
 import logging
 
 
+
 class Controller(BaseCtrl):
 
     def __init__(self, request):
@@ -25,10 +26,11 @@ class Controller(BaseCtrl):
         self.context['prefix_static'] = '/static/'
         self.context['common_static'] = '/static/'
         self.yaml_load('menu')
-        self.yamlmenu()
-        if self.request.user.is_staff:
-            self.yaml_load('menu_admin')
-            self.yamlmenu()
+        self.yamlmenu('menu')
+        #if self.request.user.is_staff:
+        #    self.yaml_load('menu_admin')
+        #    self.yamlmenu('menu_admin')
+        self.pathargs()
 
 
         if self.request.GET:
