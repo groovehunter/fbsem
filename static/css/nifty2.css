@@ -5,13 +5,13 @@ b.niftycorners *{display:block;height: 1px;line-height:1px;font-size: 1px;
 /*normal*/
 
 .menubox b b {
-	background-color: #f00;
+	background-color: #c66;
 	border-top-color: #ff7f7f;
 	border-right-color: #ff7f7f;
 	border-bottom-color: #ff7f7f;
 	border-left-color: #ff7f7f;
 	border-left-width: 0px;
-	margin-left: 0px; 
+	margin-left: 0px;
 }
 
 /*

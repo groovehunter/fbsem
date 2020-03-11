@@ -21,7 +21,7 @@ class ViewControllerSupport(BaseCtrl):
 
         self.context['common_static'] = '/static/'
         self.yaml_load('menu')
-        self.yamlmenu()
+        self.yamlmenu('menu')
         self.js_list = []
         self.js_list_common = []
         self.css_list_common = []

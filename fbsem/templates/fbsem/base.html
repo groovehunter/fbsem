@@ -1,6 +1,7 @@
 <html>
 <head>
-{% load static %}
+{% load static %}{% load fbsem_extras %}
+
   <title>fbsem</title>
 
   <link href="/static/css/common.css" type="text/css" static="all" rel="stylesheet" />
@@ -11,7 +12,6 @@
   <link href="{{common_static}}css/nifty2.css" type="text/css" static="all" rel="stylesheet" />
     <script src="{{common_static}}js/jquery.js" type="text/javascript"></script>
     <script src="{{common_static}}js/main.js" type="text/javascript"></script>
-    <link href="{{common_static}}css/schottdorf.css" type="text/css" rel="stylesheet" />
     {{ js_head|safe }}
     {{ css_head|safe }}
 </head>
@@ -42,14 +42,16 @@
     {% include "users/inventory.html" %}
   </div>
 </div>
-
 <div class="col2">
+
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
   {% if user.is_staff %}
-    {% include "fbsem/nav_admin.html" %}
+    <div><a href="/admin">Admin area</a></div>
   {% endif %}
   {% include "fbsem/nav.html" %}
+
+
   <a href="{% url 'logout' %}">Abmelden </a>
 {% else %}
   <p>You are not logged in</p>

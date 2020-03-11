@@ -12,10 +12,9 @@ class BaseCtrl:
         c = open(join(BASE_DIR, 'fbsem/'+name+'.yaml'), encoding='utf8').read()
         self.tree = yaml.load(c)
 
-    def yamlmenu(self):
+    def yamlmenu(self, name):
         """ create datastructure for menu rendering in template
             using menu.yaml config file """
-
         menudata = []
 
         for section in self.tree:
@@ -36,8 +35,17 @@ class BaseCtrl:
                     if self.perm[id][href] == True:
                         cus_sec['links'].append(item)
                 menudata.append( cus_sec )
-
+        #self.context['menudata_'+name] = menudata
         self.context['menudata'] = menudata
+
+
+    def pathargs(self):
+        path_full = self.request.get_full_path()
+        self.lg.debug('path_full %s', path_full)
+        parts = path_full.split('/')
+        self.lg.debug('parts %s', parts)
+        self.context['arg1'] = parts[1] + '/'
+
 
     def do_js_head(self):
         """ rename to do_head // add additional js and css links to head """
