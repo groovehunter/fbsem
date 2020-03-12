@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from categories.models import ItemCollection
+#from threefold.models import ItemCollection
 
 
 class Person(models.Model):
@@ -27,4 +27,4 @@ class PeopleGroup(models.Model):
     dt_added= models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name 
+        return self.name

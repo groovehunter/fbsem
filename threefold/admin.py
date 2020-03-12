@@ -1,13 +1,13 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 
-from .models import Category, Item, ItemCollection, Inventory
+from .models import ThreeFoldCategory, Item, ItemCollection, Inventory
 
 
 #admin.site.register(Category)
 
-@admin.register(Category)
-class CategoryAdmin(ImportExportModelAdmin):
+@admin.register(ThreeFoldCategory)
+class ThreeFoldCategoryAdmin(ImportExportModelAdmin):
     pass
 
 @admin.register(Item)

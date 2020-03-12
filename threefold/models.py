@@ -2,7 +2,7 @@ from django.db import models
 
 from datetime import datetime
 
-class Category(models.Model):
+class ThreeFoldCategory(models.Model):
 
     cat_name        = models.CharField(max_length=60, unique=True)
     parent_cat      = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
@@ -17,7 +17,7 @@ class Category(models.Model):
 class Item(models.Model):
 
     name            = models.CharField(max_length=60, unique=True)
-    category        = models.ForeignKey(Category, null=True, default=None, on_delete=models.CASCADE)
+    #category        = models.ForeignKey(Category, null=True, default=None, on_delete=models.CASCADE)
     dt_added        = models.DateTimeField(auto_now_add=True)
     filepath        = models.CharField(max_length=255, default='')
     filename        = models.CharField(max_length=30, default='')

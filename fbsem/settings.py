@@ -18,6 +18,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'categories',
+    'categories.editor',
     #'django_filters',
     #'sitetree',
     'users',
@@ -26,13 +28,26 @@ INSTALLED_APPS = [
     #    'socketio',
     'fbsem',
     'testapp',
-    'categories',
+    'threefold',
     'relations',
     'notes',
     'import_export',
     'sk',
     'activities',
 ]
+
+CATEGORIES_SETTINGS = {
+    'FK_REGISTRY': {
+        'testapp.TestEntity': 'category',
+        'testapp.MyModel': (
+            'primary_category',
+            {'name': 'secondary_category', 'related_name': 'mymodel_sec_cat'}, )
+    },
+#    'M2M_REGISTRY': {
+#        'app.BModel': 'categories',
+#        'app.MyModel': ('other_categories', 'more_categories', ),
+#    }
+}
 
 AUTH_USER_MODEL = 'users.CustomUser' # new
 
