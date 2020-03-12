@@ -6,8 +6,14 @@ from django.shortcuts import render, get_object_or_404
 from django import forms
 
 from users.models import CustomUser
-from .models import Topic, Suggestion
+from .models import Topic, Suggestion, Voting
+from .SkController import SkController
 
+
+
+def index(request):
+    ctrl = SkController(request)
+    return ctrl.index()
 
 
 class SuggestionListView(ListView, ViewControllerSupport):
