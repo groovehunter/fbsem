@@ -4,7 +4,8 @@ from fbsem.Controller import Controller
 #import wikipediaapi
 from testapp.credentials import *
 
-#graph = facebook.GraphAPI(access_token=access_token, version="2.12")
+from .models import TestEntity
+#graph = facebook.GraphAPI(access_token=access_tokenst, version="2.12")
 #graph = facebook.GraphAPI(access_token=user_token, version="2.12")
 """
 def print_categorymembers(categorymembers, level=0, max_level=1):
@@ -20,6 +21,12 @@ class TestController(Controller):
     def __init__(self, request):
         Controller.__init__(self, request)
         #self.wiki = wikipediaapi.Wikipedia('de')
+
+    def cat(self):
+        objects = TestEntity.objects.all()
+        self.context['objects'] = objects
+        self.template = 'testapp/cat.html'
+        return self.render()
 
     def fb(self):
         obj_id = 'SelbstSozialTransformativKunst'
@@ -52,3 +59,8 @@ class TestController(Controller):
     def error(self):
         debug = 'ERROR'
         self.template = 'testapp/error.html'
+        return self.render()
+
+    def video(self):
+        self.template = 'testapp/video.html'
+        return self.render()

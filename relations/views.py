@@ -56,6 +56,7 @@ class PeopleGroupListView(ListView, ViewControllerSupport):
         self.template_name = 'relations/generic_list.html'
         self.object_list = self.get_queryset()
         self.fields_noshow = ['people']
+        self.init_ctrl()
         self.context.update(self.get_context_data())
         return self.render()
 

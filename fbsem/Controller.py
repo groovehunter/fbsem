@@ -40,7 +40,7 @@ class Controller(BaseCtrl):
 
     def init_user_and_inventory(self):
         user = self.request.user
-        self.context['inv'] = user.inventory
+#        self.context['inv'] = user.inventory
         #self.lg.debug(user.inventory)
 
 

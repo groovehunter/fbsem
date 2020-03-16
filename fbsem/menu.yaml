@@ -61,3 +61,11 @@
         href: /sk/topic/
       - name: Aktuell
         href: /sk/new
+
+- testapp:
+    id:   testapp
+    name: Testing
+    href: testapp/
+    links:
+      - name: index
+        href: /testapp/index

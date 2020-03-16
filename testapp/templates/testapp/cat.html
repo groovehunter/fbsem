@@ -1,0 +1,12 @@
+{% extends "fbsem/base.html" %}
+
+{% block content %}
+
+categories test
+<br>
+{% for o in objects %}
+  <li>{{o}} - {{o.category}}</li>
+  
+{% endfor %}
+
+{% endblock %}
